@@ -27,28 +27,26 @@ class Uihelper {
         child: Text(Buttonname,style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold,fontFamily: "Bold"),)) ,
     );
   }
-  static CustomTextField({required TextEditingController controller,required String text , required TextInputType textinputtype,required BuildContext context}){
+  static CustomTextField({required TextEditingController controller,required String text , required TextInputType textinputtype,required BuildContext context,required IconData icondata}){
     return Container(
-      height: 36,
+      height: 40,
       width: 350,
       decoration: BoxDecoration(
         color: Theme.of(context).brightness==Brightness.dark?Appcolors.CntainerDarkMode:Appcolors.ContainerlightMode,
         borderRadius: BorderRadius.circular(10),
 
       ),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 8,bottom: 8),
-        child: TextField(
-          controller: controller,
-          keyboardType: textinputtype,
-          decoration: InputDecoration(
-            hintText: text,
-            border: InputBorder.none,
-            hintStyle: TextStyle(
-              color: Theme.of(context).brightness==Brightness.dark?Appcolors.hintdarkmode:Appcolors.hintlightmode,
-              fontSize: 14,
-            )
-          ),
+      child: TextField(
+        controller: controller,
+        keyboardType: textinputtype,
+        decoration: InputDecoration(
+          prefixIcon: Icon(icondata,color: Appcolors.iconlight,),
+          hintText: text,
+          border: InputBorder.none,
+          hintStyle: TextStyle(
+            color: Theme.of(context).brightness==Brightness.dark?Appcolors.hintdarkmode:Appcolors.hintlightmode,
+            fontSize: 14,
+          )
         ),
       ),
     );

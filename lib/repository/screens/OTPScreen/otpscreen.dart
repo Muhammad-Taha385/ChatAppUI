@@ -15,12 +15,12 @@ class OTPScreen extends StatelessWidget {
   height: 56,
   textStyle: TextStyle(fontSize: 20, color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black, fontWeight: FontWeight.w600),
   decoration: BoxDecoration(
-    // border: Border.all(color: Color.fromRGBO(234, 239, 243, 1)),
+    border: Border.all( color:Theme.of(context).brightness == Brightness.dark ? Appcolors.ContainerlightMode : Appcolors.CntainerDarkMode,),
     borderRadius: BorderRadius.circular(7),
   ),
 );
     final focusedPinTheme = defaultPinTheme.copyDecorationWith(
-  // border: Border.all(color: Color.fromRGBO(114, 178, 238, 1)),
+  border: Border.all(color: Color.fromRGBO(114, 178, 238, 1)),
    color:Theme.of(context).brightness == Brightness.dark ? Appcolors.otpdarkmode : Appcolors.otplightmode,
   borderRadius: BorderRadius.circular(7),
 );

@@ -25,7 +25,7 @@ class LoginScreen extends StatelessWidget {
             Uihelper.CustomText(text: "your phone number", fontsize: 14, context: context),
 
             SizedBox(height: 20,),
-            Uihelper.CustomTextField(controller: phonecontroller, text: "Phone number", textinputtype: TextInputType.number, context: context)
+            Uihelper.CustomTextField(controller: phonecontroller, text: "Phone number", textinputtype: TextInputType.number, context: context,icondata: Icons.phone)
           ],
         ),
       ),

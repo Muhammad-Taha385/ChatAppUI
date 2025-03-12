@@ -1,4 +1,5 @@
 import 'package:chatuiapp/domain/constants/appcolors.dart';
+import 'package:chatuiapp/repository/screens/bottonnavigation/bottomnavigationscreen.dart';
 import 'package:chatuiapp/repository/screens/uihelper.dart';
 import 'package:flutter/material.dart';
 
@@ -25,17 +26,19 @@ class ProfileScreen extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            Uihelper.CustomTextField(controller: firstnamecontroller, text: "First Name (Required)", textinputtype: TextInputType.name, context: context),
+            Uihelper.CustomTextField(controller: firstnamecontroller, text: "First Name (Required)", textinputtype: TextInputType.name, context: context,icondata: Icons.person),
             SizedBox(
               height: 10,
             ),
-            Uihelper.CustomTextField(controller: lastnamecontroller, text: "Last Name (Required)", textinputtype: TextInputType.name, context: context),
+            Uihelper.CustomTextField(controller: lastnamecontroller, text: "Last Name (Required)", textinputtype: TextInputType.name, context: context,icondata: Icons.person_2),
             // FloatingActionButton(onPressed: )
           ],
         ),
 
       ),
-      floatingActionButton: Uihelper.CustomButton(Buttonname: "Save", callback: (){}),
+      floatingActionButton: Uihelper.CustomButton(Buttonname: "Save", callback: (){
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>BottomNavScreen()));
+      }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
