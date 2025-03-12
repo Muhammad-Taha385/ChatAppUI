@@ -4,21 +4,28 @@ import 'package:flutter/material.dart';
 
 class ChatsScreen extends StatelessWidget {
   // const ChatsScreen({super.key});
+  TextEditingController searchcontroller = TextEditingController();
   var arrchats =[
 {
       "img":"Haris.png",
       "Name":"Haris Arif",
-      "Lastseen":"Good Morning, did you sleep yesterday?",
+      "msg":"Good Morning, did you sleep yesterday?",
+      "date":"Today",
+      "msgcount":"1"
     },
     {
       "img":"Usaid.png",
       "Name":"Usaid Iqbal",
-      "Lastseen":"Hey Brother!!! How are you?",
+      "msg":"Hey Brother!!! How are you?",
+      "date":"17/6",
+      "msgcount":"0"
     },
     {
       "img":"Sami.png",
       "Name":"Sami Shoaib",
-      "Lastseen":"Hi!!! Whats the plan of tonight?",
+      "msg":"Hi!!! Whats the plan of tonight?",
+      "date":"Today",
+      "msgcount":"1"
     },
     // {
     //   "img":"Haris.png",
@@ -28,7 +35,9 @@ class ChatsScreen extends StatelessWidget {
     {
       "img":"Hassaan.png",
       "Name":"Hassaan Aslam",
-      "Lastseen":"Hi!!! Wanna have some chat?",
+      "msg":"Hi!!! Wanna have some chat?",
+      "date":"Yesterday",
+      "msgcount":"1"
     }
   ];
 
@@ -77,13 +86,39 @@ class ChatsScreen extends StatelessWidget {
           Divider(
             color: Color(0xFFADB5BD),
           ),
-          ListView.builder(itemBuilder: (context,index){
-            return ListTile(
-              leading: Uihelper.Customimage(imagurl: arrchats[index]["img"].toString()),
-              title: Uihelper.CustomText(text: arrchats[index]["Name"].toString(), fontsize: 14, context: context),
-              subtitle: Uihelper.CustomText(text: arrchats[index]["Lastseen"].toString(), context: context, fontsize: 10),
-            );
-          })
+          SizedBox(
+            height: 20,
+          ),
+          Uihelper.CustomTextField(controller: searchcontroller,context: context,text: "Search",textinputtype: TextInputType.name, icondata: Icons.search),
+          SizedBox(
+            height: 20,
+          ),
+          Expanded(
+            child: ListView.builder(itemBuilder: (context,index){
+              return Padding(
+                padding: const EdgeInsets.only(left: 5),
+                child: ListTile(
+                  leading: Uihelper.Customimage(imagurl: arrchats[index]["img"].toString()),
+                  title: Uihelper.CustomText(text: arrchats[index]["Name"].toString(), fontsize: 14, context: context),
+                  subtitle: Uihelper.CustomText(text: arrchats[index]["msg"].toString(), context: context, fontsize: 12,color: Color(0xFFADB5BD)),
+                  trailing: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Uihelper.CustomText(text: arrchats[index]["date"].toString(), fontsize: 10, context: context,color: Color(0xFFA4A4A4)),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Color(0xFFD2D5F9),
+                        radius: 12,
+                        child:Uihelper.CustomText(text: arrchats[index]["msgcount"].toString(), fontsize:10, context: context) ,
+                      )
+                    ],
+                  ),
+                ),
+              );
+            },itemCount: arrchats.length,),
+          )
         ],
       ),
       // body: Center(
